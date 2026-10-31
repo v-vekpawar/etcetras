@@ -1,0 +1,75 @@
+{% extends "base.html" %}  <!-- Inheriting base.html -->
+
+
+<!-- Overriding website title -->
+{% block title %}{{name.split(" ")[0] | default("My") }}-Portfolio {% endblock %}
+
+<!-- Overriding name-->
+{% block header_name %}
+<h1>{{name | title | default("John Doe") }}</h1>
+{% endblock %}
+
+<!-- Overriding headers skills -->
+{% block header_skills %}
+{% if skills %}
+<p>{{ skills[0] | title }} | {{ skills [1] | title }} | {{ skills[2] | title }}</p>
+{% else %}
+{{ super() }}
+{% endif %}
+{% endblock %}
+
+<!-- Overriding about sections -->
+{% block about %}
+{% if about %}
+<h2>About Me</h2>
+<p>{{ about | title }}</p>
+{% else %}
+{{ super() }}
+{% endif %}
+{% endblock %}
+
+<!-- Overriding skills sections -->
+{% block skills %}
+{% if skills %}
+<h2>Skills</h2>
+<ul>
+    {% for item in skills %}
+    <li>{{ item | title }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+{{ super() }}
+{% endif %}
+{% endblock %}
+
+
+<!-- Overriding Projects sections -->
+{% block projects %}
+{% if projects %}
+<h2>Projects</h2>
+{% for pname,description in projects.items() %}
+<div class="project-card">
+    <h3>{{ pname | title }}</h3>
+    <p>{{ description | title }}</p>
+</div>
+{% endfor %}
+{% else %}
+{{ super() }}
+{% endif %}
+{% endblock %}
+
+<!-- Overriding Contact sections -->
+{% block contacts %}
+{% if email %}
+<h2>Contact Me</h2>
+<p>Email: {{ email | default("yourmail@mail.com") }}</p>
+<p>LinkedIn | GitHub | Twitter</p>
+{% else %}
+{{ super() }}
+{% endif %}
+{% endblock %}
+
+<!-- Overriding Contact sections -->
+{% block footer %}
+<p>© 2026 {{ name | title | default("John Doe") }}. All Rights Reserved.</p>
+{% endblock %}

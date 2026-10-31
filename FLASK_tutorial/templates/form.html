@@ -1,0 +1,31 @@
+<!-- templates/form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio Builder Form</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/form_style.css') }}">
+</head>
+<body>
+    <form action="/portfolio" method="post">
+        <h2>Build Your Portfolio</h2>
+
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="skills">Skills (comma separated)</label>
+        <input type="text" id="skills" name="skills" placeholder="Python, Flask, JavaScript">
+
+        <label for="about">About You</label>
+        <textarea id="about" name="about" rows="5"></textarea>
+
+        <label for="projects">Projects (format: Name|Description, separate multiple with semicolon)</label>
+        <textarea id="projects" name="projects" rows="5" placeholder="Project1|Description1;Project2|Description2"></textarea>
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+
+        <button type="submit">Generate Portfolio</button>
+    </form>
+</body>
+</html>

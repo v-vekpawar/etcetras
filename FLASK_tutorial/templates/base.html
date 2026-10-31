@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Portfolio {% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        {% block header_name %}
+        <h1>Your Name</h1>
+        {% endblock %}
+        {% block header_skills %}
+        <p>Web Developer | Designer | Programmer</p>
+        {% endblock %}
+    </header>
+
+    <hr>
+
+    <!-- About Section -->
+    <section id="about">
+        {% block about %}
+        <h2>About Me</h2>
+        <p>
+            I am a passionate web developer who loves creating clean and user-friendly websites.
+            This is a basic portfolio layout created using HTML and CSS.
+        </p>
+        {% endblock %}
+    </section>
+
+    <hr>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        {% block skills %}
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>Responsive Design</li>
+        </ul>
+        {% endblock %}
+    </section>
+
+    <hr>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        {% block projects %}
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>Project One</h3>
+            <p>A simple website built using HTML and CSS.</p>
+        </div>
+        <div class="project-card">
+            <h3>Project Two</h3>
+            <p>A small JavaScript-based application.</p>
+        </div>
+        {% endblock %}
+    </section>
+
+    <hr>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        {% block contacts %}
+        <h2>Contact Me</h2>
+        <p>Email: yourname@example.com</p>
+        <p>LinkedIn | GitHub | Twitter</p>
+        {% endblock %}
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        {% block footer %}
+        <p>© 2026 Your Name. All Rights Reserved.</p>
+        {% endblock %}
+    </footer>
+
+</body>
+
+</html>
